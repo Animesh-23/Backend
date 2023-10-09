@@ -1,12 +1,20 @@
 const http = require("http");
 
 const server = http.createServer();
+const friends = [
+  {
+    name: "Animesh",
+    age: 21,
+  },
+];
 server.on("request", (req, res) => {
   if (req.url === "/fre") {
     res.writeHead(200, {
       "Content-Type": "application/json",
     });
-    res.end(JSON.stringify({ name: "Animeh" }));
+    if (req.method === "POST") {
+    }
+    res.end(JSON.stringify(friends));
   } else if (req.url === "/mes") {
     res.write("<html>");
     res.write("<body>");
